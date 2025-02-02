@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ysheraun <ysheraun@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yosherau <yosherau@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 00:47:36 by ysheraun          #+#    #+#             */
-/*   Updated: 2025/02/02 00:55:53 by ysheraun         ###   ########.fr       */
+/*   Updated: 2025/02/02 20:02:20 by yosherau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,13 @@
 
 int	main(int argc, char *argv[])
 {
-	char	*line;
-
-	line = get_next_line(STD_IN);
-	
+	int	index;
+	if (argc <= 1 || (!argv[1][0] && argc == 2))
+		return (1);
+	else if (argc == 2)
+		argv = ft_split(argv[1], ' ');
+	index = 0;
+	while (argv[index])
+		printf("%s", argv[index++]);
+	return (0);
 }
