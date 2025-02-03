@@ -1,20 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   stack_operations.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yosherau <yosherau@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/02 00:46:22 by ysheraun          #+#    #+#             */
-/*   Updated: 2025/02/03 10:05:33 by yosherau         ###   ########.fr       */
+/*   Created: 2025/02/03 17:18:34 by yosherau          #+#    #+#             */
+/*   Updated: 2025/02/03 20:19:01 by yosherau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "srcs.h"
 
-# include "./srcs/srcs.h"
-
-# define STD_IN 1
-
-#endif
+// void	stack_init(t_stack_node **stack, char **argv)
+// {
+// 	inp_checker
+// }
