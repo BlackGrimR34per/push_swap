@@ -6,14 +6,14 @@
 /*   By: yosherau <yosherau@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 18:07:35 by ysheraun          #+#    #+#             */
-/*   Updated: 2025/02/03 22:52:33 by yosherau         ###   ########.fr       */
+/*   Updated: 2025/02/04 17:54:42 by yosherau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "srcs.h"
 #include <stdio.h>
 
-char	**inpsep(char *argv[])
+char	**input_seperator(char *argv[])
 {
 	char	*str;
 	char	*temp;
@@ -36,7 +36,7 @@ char	**inpsep(char *argv[])
 	return (split_args);
 }
 
-int	inp_checker(char *argv[])
+int	input_checker(char *argv[])
 {
 	int	row;
 	int	column;
@@ -47,7 +47,13 @@ int	inp_checker(char *argv[])
 		column = -1;
 		while (argv[row][++column])
 		{
-			
+			if (argv[row][column] == '+' || argv[row][column] == '-')
+			{
+				if (!ft_isdigit(argv[row][column + 1]))
+					return (1);
+			}
+			else if (!(ft_isdigit(argv[row][column])))
+				return (1);
 		}
 	}
 	return (0);
