@@ -6,7 +6,7 @@
 /*   By: yosherau <yosherau@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 18:07:35 by ysheraun          #+#    #+#             */
-/*   Updated: 2025/02/03 20:58:59 by yosherau         ###   ########.fr       */
+/*   Updated: 2025/02/03 22:52:33 by yosherau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,7 @@ int	inp_checker(char *argv[])
 		column = -1;
 		while (argv[row][++column])
 		{
-			if (!(ft_isdigit(argv[row][column]) ||
-				argv[row][column] == 43 || argv[row][column] == 45))
-				return (1);
+			
 		}
 	}
 	return (0);
