@@ -6,7 +6,7 @@
 /*   By: yosherau <yosherau@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 17:18:34 by yosherau          #+#    #+#             */
-/*   Updated: 2025/02/04 20:09:10 by yosherau         ###   ########.fr       */
+/*   Updated: 2025/02/05 08:32:41 by yosherau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,39 @@ void	stack_init(t_stack_node **stack, char *argv[])
 	int		row;
 	long	nbr;
 
-	row = 0;
-	while (argv[row])
+	row = -1;
+	while (argv[++row])
 	{
 		nbr = ft_atol(argv[row]);
 		if (nbr > INT_MAX || nbr < INT_MIN)
 			input_free(argv);
 		if (repeat(*stack, (int)nbr))
 			input_free(argv);
-
+		add_to_stack(stack, nbr);
 	}
 }
 
 void	add_to_stack(t_stack_node **ptr, int nbr)
 {
-	
+	t_stack_node	*node;
+	t_stack_node	*lst_ptr;
+
+	node = (t_stack_node *)malloc(sizeof(t_stack_node));
+	if (!node)
+		return ;
+	node->data = nbr;
+	node->nxt_ptr = NULL;
+	if (!*ptr)
+	{
+		*ptr = node;
+		node->prv_ptr = NULL;
+	}
+	else
+	{
+		lst_ptr = ft_lstlast(*ptr);
+		node->prv_ptr = lst_ptr;
+		lst_ptr->nxt_ptr = node;
+	}
 }
 
 int	repeat(t_stack_node *ptr, int nbr)
@@ -42,7 +60,7 @@ int	repeat(t_stack_node *ptr, int nbr)
 	{
 		if (ptr->data == nbr)
 			return (1);
-		ptr=ptr->nxt_ptr;
+		ptr = ptr->nxt_ptr;
 	}
 	return (0);
 }
