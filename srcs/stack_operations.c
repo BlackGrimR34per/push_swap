@@ -6,16 +6,18 @@
 /*   By: yosherau <yosherau@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 17:18:34 by yosherau          #+#    #+#             */
-/*   Updated: 2025/02/05 08:32:41 by yosherau         ###   ########.fr       */
+/*   Updated: 2025/02/05 14:10:10 by yosherau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "srcs.h"
+#include <stdio.h>
 
 void	stack_init(t_stack_node **stack, char *argv[])
 {
 	int		row;
 	long	nbr;
+	t_stack_node *temp;
 
 	row = -1;
 	while (argv[++row])
@@ -25,8 +27,11 @@ void	stack_init(t_stack_node **stack, char *argv[])
 			input_free(argv);
 		if (repeat(*stack, (int)nbr))
 			input_free(argv);
+		free(argv[row]);
 		add_to_stack(stack, nbr);
 	}
+	free(argv);
+	// free(stack);
 }
 
 void	add_to_stack(t_stack_node **ptr, int nbr)
